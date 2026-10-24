@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cybermark-restaurant-staging",
+  "compatibility_date": "2026-10-01",
+  // Runs before every `wrangler deploy` / `wrangler dev` (including Workers Builds):
+  // collects each site's site.json manifest into public/sites.json for the index page.
+  "build": {
+    "command": "node scripts/build-index.mjs"
+  },
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
